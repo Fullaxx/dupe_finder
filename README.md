@@ -17,4 +17,6 @@ sudo make install
 ```
 
 ## Find files and feed dupe_find using stdin
+```
 find /etc -type f | ./dupe_find.exe | sort
+```
