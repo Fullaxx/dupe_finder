@@ -10,12 +10,12 @@ DBGCFLAGS="${CFLAGS} -ggdb3 -DDEBUG"
 
 rm -f *.exe *.dbg
 
-gcc ${OPTCFLAGS} main.c xxhash.c process_xxh.c xxfile.c -lqlibc -o ${EXENAME}.exe
-gcc ${DBGCFLAGS} main.c xxhash.c process_xxh.c xxfile.c -lqlibc -o ${EXENAME}.dbg
+gcc ${OPTCFLAGS} main.c futils.c xxhash.c process_xxh.c xxfile.c -lqlibc -o ${EXENAME}.exe
+gcc ${DBGCFLAGS} main.c futils.c xxhash.c process_xxh.c xxfile.c -lqlibc -o ${EXENAME}.dbg
 
 SLDIR=${SLDIR:-/usr/lib64}
 if [ ${SLDIR}/libqlibc.a ]; then
-  gcc ${OPTCFLAGS} -static main.c xxhash.c process_xxh.c xxfile.c ${SLDIR}/libqlibc.a -o ${EXENAME}.static.exe
+  gcc ${OPTCFLAGS} -static main.c futils.c xxhash.c process_xxh.c xxfile.c ${SLDIR}/libqlibc.a -o ${EXENAME}.static.exe
 fi
 
 strip *.exe

@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include <qlibc/qlibc.h>
 
+#include "futils.h"
+
 /* Prototypes */
 int file_xxh64(const char *, unsigned long *);
 #define HSIZE (((64/8)*2)+1)
@@ -17,12 +19,14 @@ qhashtbl_t *qht;
 */
 void process_file(char *file)
 {
-	int err;
+	int err, is_rfile;
 	unsigned long digest;
 	char hash[HSIZE];
 	char *val_ptr;
 
 	if(!file) { return; }
+	is_rfile = is_regfile(file, 0);
+	if(is_rfile != 1) { return; }
 
 	err = file_xxh64(file, &digest);
 	if(err) { /*fprintf(stderr, "COULD NOT HASH FILE: %s\n", file);*/ return; }
