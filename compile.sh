@@ -17,3 +17,5 @@ SLDIR=${SLDIR:-/usr/lib64}
 if [ ${SLDIR}/libqlibc.a ]; then
   gcc ${OPTCFLAGS} -static main.c xxhash.c process_xxh.c xxfile.c ${SLDIR}/libqlibc.a -o ${EXENAME}.static.exe
 fi
+
+strip *.exe
