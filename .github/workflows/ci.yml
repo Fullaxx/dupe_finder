@@ -36,6 +36,6 @@ jobs:
           pushd /tmp/qlibc
           ./configure
           make
-          make install
+          sudo make install
           popd
           ./compile.sh
