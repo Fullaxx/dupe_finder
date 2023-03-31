@@ -3,7 +3,7 @@
 set -e
 
 EXENAME="dupe_find"
-CFLAGS="-Wall -ansi -std=c99"
+CFLAGS="-Wall -std=c99"
 # CFLAGS+=" -DUSE_GETLINE"
 OPTCFLAGS="${CFLAGS} -O2"
 DBGCFLAGS="${CFLAGS} -ggdb3 -DDEBUG"
